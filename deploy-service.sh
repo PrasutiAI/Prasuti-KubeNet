@@ -40,11 +40,11 @@ fi
 
 # Validate service name
 case $SERVICE_NAME in
-  services|accounts|mail|profiles|www)
+  services|accounts|mail|profiles|www|events|db|dashboard|notifications|operations|medroster|learning|clickup|smartcity|sugamx|montessorix)
     ;;
   *)
     echo "Error: Invalid service name: $SERVICE_NAME"
-    echo "Valid services: services, accounts, mail, profiles, www"
+    echo "Valid services: services, accounts, mail, profiles, www, events, db, dashboard, notifications, operations, medroster, learning, clickup, smartcity, sugamx, montessorix"
     exit 1
     ;;
 esac
@@ -86,6 +86,39 @@ case $SERVICE_NAME in
     ;;
   www)
     PROJECT_DIR="Prasuti-Mainsite"
+    ;;
+  events)
+    PROJECT_DIR="Prasuti-Events"
+    ;;
+  db)
+    PROJECT_DIR="Prasuti-Db"
+    ;;
+  dashboard)
+    PROJECT_DIR="Prasuti-Dashboard"
+    ;;
+  notifications)
+    PROJECT_DIR="Prasuti-Notifications"
+    ;;
+  operations)
+    PROJECT_DIR="Prasuti-Operations"
+    ;;
+  medroster)
+    PROJECT_DIR="Prasuti-MedRoster"
+    ;;
+  learning)
+    PROJECT_DIR="Prasuti-Learning"
+    ;;
+  clickup)
+    PROJECT_DIR="Prasuti-ClickUp"
+    ;;
+  smartcity)
+    PROJECT_DIR="Prasuti-SmartCityKalaburagi"
+    ;;
+  sugamx)
+    PROJECT_DIR="Prasuti-SugamX"
+    ;;
+  montessorix)
+    PROJECT_DIR="Prasuti-MontessoriX"
     ;;
 esac
 
