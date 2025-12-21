@@ -1,0 +1,95 @@
+name: Deploy to UAT
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-uat:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Prasuti-KubeNet
+        uses: actions/checkout@v4
+        with:
+          path: Prasuti-KubeNet
+          token: ${{ secrets.GH_PAT }}
+      
+      - name: Checkout Prasuti-Services
+        uses: actions/checkout@v4
+        with:
+          repository: PrasutiAI/Prasuti-Services
+          path: Prasuti-Services
+          token: ${{ secrets.GH_PAT }}
+      
+      - name: Checkout Prasuti-Accounts
+        uses: actions/checkout@v4
+        with:
+          repository: PrasutiAI/Prasuti-Accounts
+          path: Prasuti-Accounts
+          token: ${{ secrets.GH_PAT }}
+      
+      - name: Checkout Prasuti-Mail
+        uses: actions/checkout@v4
+        with:
+          repository: PrasutiAI/Prasuti-Mail
+          path: Prasuti-Mail
+          token: ${{ secrets.GH_PAT }}
+      
+      - name: Checkout Prasuti-Profiles
+        uses: actions/checkout@v4
+        with:
+          repository: PrasutiAI/Prasuti-Profiles
+          path: Prasuti-Profiles
+          token: ${{ secrets.GH_PAT }}
+      
+      - name: Checkout Prasuti-Mainsite
+        uses: actions/checkout@v4
+        with:
+          repository: PrasutiAI/Prasuti-Mainsite
+          path: Prasuti-Mainsite
+          token: ${{ secrets.GH_PAT }}
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_PAT }}
+      
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+      
+      - name: Configure kubeconfig
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+      
+      - name: Verify cluster connection
+        run: |
+          kubectl get nodes
+      
+      - name: Deploy all services to UAT
+        run: |
+          cd Prasuti-KubeNet
+          chmod +x deploy-service.sh
+          ./deploy-service.sh -s services -e uat
+          ./deploy-service.sh -s accounts -e uat
+          ./deploy-service.sh -s mail -e uat
+          ./deploy-service.sh -s profiles -e uat
+          ./deploy-service.sh -s www -e uat
+      
+      - name: Verify deployment
+        run: |
+          kubectl get pods -n uat
+          kubectl get ingress -n uat
