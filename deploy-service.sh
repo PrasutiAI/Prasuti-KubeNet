@@ -51,11 +51,11 @@ esac
 
 # Validate environment
 case $ENVIRONMENT in
-  dev|stg|prod)
+  dev|stg|uat|prod)
     ;;
   *)
     echo "Error: Invalid environment: $ENVIRONMENT"
-    echo "Valid environments: dev, stg, prod"
+    echo "Valid environments: dev, stg, uat, prod"
     exit 1
     ;;
 esac
