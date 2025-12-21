@@ -55,6 +55,16 @@ jobs:
           path: Prasuti-Mainsite
           token: ${{ secrets.GITHUB_TOKEN }}
       
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Set up kubectl
         uses: azure/setup-kubectl@v4
         with:
@@ -70,18 +80,17 @@ jobs:
         run: |
           kubectl get nodes
       
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      
       - name: Deploy all services to UAT
         run: |
           cd Prasuti-KubeNet
-          chmod +x deploy-all.ps1
-          pwsh ./deploy-all.ps1 -Environment uat
+          chmod +x deploy-service.sh
+          
+          # Deploy each service
+          ./deploy-service.sh -s services -e uat
+          ./deploy-service.sh -s accounts -e uat
+          ./deploy-service.sh -s mail -e uat
+          ./deploy-service.sh -s profiles -e uat
+          ./deploy-service.sh -s www -e uat
       
       - name: Verify deployment
         run: |
