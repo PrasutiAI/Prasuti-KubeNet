@@ -1,0 +1,15 @@
+# Environment secrets
+application_secrets.*.env
+*.pem
+kubeconfig
+
+# Logs
+*.log
+*.txt
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
