@@ -113,9 +113,14 @@ fi
 # Determine Kustomize overlay path
 KUSTOMIZE_PATH="$K8S_PATH/overlays/$ENVIRONMENT"
 if [ ! -d "$KUSTOMIZE_PATH" ]; then
-  echo "Warning: Kustomize overlay not found at: $KUSTOMIZE_PATH"
-  echo "Falling back to base k8s path..."
-  KUSTOMIZE_PATH="$K8S_PATH"
+  # Check for direct environment folder (e.g. k8s/dev)
+  if [ -d "$K8S_PATH/$ENVIRONMENT" ]; then
+    KUSTOMIZE_PATH="$K8S_PATH/$ENVIRONMENT"
+  else
+    echo "Warning: Kustomize overlay not found at: $KUSTOMIZE_PATH or $K8S_PATH/$ENVIRONMENT"
+    echo "Falling back to base k8s path..."
+    KUSTOMIZE_PATH="$K8S_PATH"
+  fi
 fi
 
 echo "Kustomize Path: $KUSTOMIZE_PATH"
