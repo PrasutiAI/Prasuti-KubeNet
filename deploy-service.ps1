@@ -4,7 +4,7 @@ param (
   [string]$ServiceName,
 
   [Parameter(Mandatory = $false)]
-  [ValidateSet("dev", "stg", "prod")]
+  [ValidateSet("dev", "stg", "uat", "prod", "local")]
   [string]$Environment = "dev"
 )
 
@@ -59,7 +59,7 @@ if (-not (Test-Path $K8sPath)) {
 }
 
 # Determine Kustomize overlay path
-$EnvMap = @{ "dev" = "dev"; "stg" = "stg"; "prod" = "prod" }
+$EnvMap = @{ "dev" = "dev"; "stg" = "stg"; "uat" = "uat"; "prod" = "prod" }
 $MappedEnv = $EnvMap[$Environment]
 
 $PotentialPaths = @(
