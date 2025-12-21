@@ -25,35 +25,35 @@ jobs:
         with:
           repository: PrasutiAI/Prasuti-Services
           path: Prasuti-Services
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
       
       - name: Checkout Prasuti-Accounts
         uses: actions/checkout@v4
         with:
           repository: PrasutiAI/Prasuti-Accounts
           path: Prasuti-Accounts
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
       
       - name: Checkout Prasuti-Mail
         uses: actions/checkout@v4
         with:
           repository: PrasutiAI/Prasuti-Mail
           path: Prasuti-Mail
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
       
       - name: Checkout Prasuti-Profiles
         uses: actions/checkout@v4
         with:
           repository: PrasutiAI/Prasuti-Profiles
           path: Prasuti-Profiles
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
       
       - name: Checkout Prasuti-Mainsite
         uses: actions/checkout@v4
         with:
           repository: PrasutiAI/Prasuti-Mainsite
           path: Prasuti-Mainsite
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -63,7 +63,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GH_PAT }}
       
       - name: Set up kubectl
         uses: azure/setup-kubectl@v4
