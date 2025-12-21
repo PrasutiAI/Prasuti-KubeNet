@@ -1,6 +1,6 @@
 param (
   [Parameter(Mandatory = $true)]
-  [ValidateSet("services", "accounts", "mail", "profiles", "www")]
+  [ValidateSet("services", "accounts", "mail", "profiles", "www", "events", "db", "dashboard", "notifications", "operations", "medroster", "learning", "clickup", "smartcity", "sugamx", "montessorix")]
   [string]$ServiceName,
 
   [Parameter(Mandatory = $false)]
@@ -25,11 +25,22 @@ $ImageName = "ghcr.io/prasutiai/prasuti-${ServiceNameLower}:latest"
 
 # Map service name to project directory name (PascalCase)
 $ServiceDirMap = @{
-  "services" = "Prasuti-Services"
-  "accounts" = "Prasuti-Accounts"
-  "mail"     = "Prasuti-Mail"
-  "profiles" = "Prasuti-Profiles"
-  "www"      = "Prasuti-Mainsite"
+  "services"      = "Prasuti-Services"
+  "accounts"      = "Prasuti-Accounts"
+  "mail"          = "Prasuti-Mail"
+  "profiles"      = "Prasuti-Profiles"
+  "www"           = "Prasuti-Mainsite"
+  "events"        = "Prasuti-Events"
+  "db"            = "Prasuti-Db"
+  "dashboard"     = "Prasuti-Dashboard"
+  "notifications" = "Prasuti-Notifications"
+  "operations"    = "Prasuti-Operations"
+  "medroster"     = "Prasuti-MedRoster"
+  "learning"      = "Prasuti-Learning"
+  "clickup"       = "Prasuti-ClickUp"
+  "smartcity"     = "Prasuti-SmartCityKalaburagi"
+  "sugamx"        = "Prasuti-SugamX"
+  "montessorix"   = "Prasuti-MontessoriX"
 }
 
 $ProjectDir = $ServiceDirMap[$ServiceName]
