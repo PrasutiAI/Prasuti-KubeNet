@@ -1,0 +1,87 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251221205531
+Username: BOOK-K7419310PT\Sanga
+RunAs User: BOOK-K7419310PT\Sanga
+Configuration Name: 
+Machine: BOOK-K7419310PT (Microsoft Windows NT 10.0.26220.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Start-Transcript -Path 'c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\join_attempt_2.log'; & kubeadm join 45.194.3.82:6443 --token e9ckca.d62xhwifo1p72zo8 --discovery-token-ca-cert-hash sha256:e4ca8feb60449c29a8f6bdce3231b3e40c9c067ff2e63c1df2d152f3da41c19e --cri-socket 'npipe:////./pipe/containerd-containerd' --ignore-preflight-errors=all; Stop-Transcript
+Process ID: 390376
+PSVersion: 5.1.26100.7344
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7344
+BuildVersion: 10.0.26100.7344
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\join_attempt_2.log
+[preflight] Running pre-flight checks
+        [WARNING CRI]: container runtime is not running: output: time="2025-12-21T20:55:31+05:30" level=fatal msg="getti
+ng status of runtime: invalid character 'P' in string escape code"
+, error: exit status 1
+        [WARNING Service-Kubelet]: kubelet service does not exist
+[preflight] Reading configuration from the cluster...
+[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+W1221 20:55:34.465149  413268 cluster.go:95] error unmarshaling configuration schema.GroupVersionKind{Group:"kubeadm.k8s
+.io", Version:"v1beta3", Kind:"ClusterConfiguration"}: strict decoding error: unknown field "caCertificateValidityPeriod
+", unknown field "certificateValidityPeriod"
+W1221 20:55:34.517170  413268 configset.go:177] error unmarshaling configuration schema.GroupVersionKind{Group:"kubeprox
+y.config.k8s.io", Version:"v1alpha1", Kind:"KubeProxyConfiguration"}: strict decoding error: unknown field "logging.opti
+ons.text"
+W1221 20:55:34.849107  413268 configset.go:177] error unmarshaling configuration schema.GroupVersionKind{Group:"kubelet.
+config.k8s.io", Version:"v1beta1", Kind:"KubeletConfiguration"}: strict decoding error: unknown field "logging.options.t
+ext"
+W1221 20:55:34.854416  413268 utils.go:69] The recommended value for "authentication.x509.clientCAFile" in "KubeletConfi
+guration" is: \etc\kubernetes\pki\ca.crt; the provided value is: /etc/kubernetes/pki/ca.crt
+[kubelet-start] Couldn't detect a kubelet service, can't make sure the kubelet not running for a short period of time wh
+ile setting up configuration for it.
+W1221 20:55:34.925920  413268 kubelet.go:63] [kubelet-start] WARNING: unable to stop the kubelet service momentarily: [c
+ould not access service kubelet: The specified service does not exist as an installed service.]
+[kubelet-start] Writing kubelet configuration to file "\\var\\lib\\kubelet\\config.yaml"
+[kubelet-start] Writing kubelet environment file with flags to file "\\var\\lib\\kubelet\\kubeadm-flags.env"
+[kubelet-start] Starting the kubelet
+[kubelet-start] Couldn't detect a kubelet service, can't make sure the kubelet is running properly.
+W1221 20:55:34.928532  413268 kubelet.go:43] [kubelet-start] WARNING: unable to start the kubelet service: [couldn't sto
+p service kubelet: could not access service kubelet: The specified service does not exist as an installed service.]
+[kubelet-start] Please ensure kubelet is reloaded and running manually.
+[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap...
+[kubelet-check] Initial timeout of 40s passed.
+[kubelet-check] It seems like the kubelet isn't running or healthy.
+[kubelet-check] The HTTP call equal to 'curl -sSL http://localhost:10248/healthz' failed with error: Get "http://localho
+st:10248/healthz": dial tcp [::1]:10248: connectex: No connection could be made because the target machine actively refu
+sed it..
+[kubelet-check] It seems like the kubelet isn't running or healthy.
+[kubelet-check] The HTTP call equal to 'curl -sSL http://localhost:10248/healthz' failed with error: Get "http://localho
+st:10248/healthz": dial tcp [::1]:10248: connectex: No connection could be made because the target machine actively refu
+sed it..
+[kubelet-check] It seems like the kubelet isn't running or healthy.
+[kubelet-check] The HTTP call equal to 'curl -sSL http://localhost:10248/healthz' failed with error: Get "http://localho
+st:10248/healthz": dial tcp [::1]:10248: connectex: No connection could be made because the target machine actively refu
+sed it..
+[kubelet-check] It seems like the kubelet isn't running or healthy.
+[kubelet-check] The HTTP call equal to 'curl -sSL http://localhost:10248/healthz' failed with error: Get "http://localho
+st:10248/healthz": dial tcp [::1]:10248: connectex: No connection could be made because the target machine actively refu
+sed it..
+[kubelet-check] It seems like the kubelet isn't running or healthy.
+[kubelet-check] The HTTP call equal to 'curl -sSL http://localhost:10248/healthz' failed with error: Get "http://localho
+st:10248/healthz": dial tcp [::1]:10248: connectex: No connection could be made because the target machine actively refu
+sed it..
+
+Unfortunately, an error has occurred:
+        timed out waiting for the condition
+
+This error is likely caused by:
+        - The kubelet is not running
+        - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+
+If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:
+        - 'systemctl status kubelet'
+        - 'journalctl -xeu kubelet'
+error execution phase kubelet-start: timed out waiting for the condition
+To see the stack trace of this error execute with --v=5 or higher
+**********************
+Windows PowerShell transcript end
+End time: 20251221205730
+**********************

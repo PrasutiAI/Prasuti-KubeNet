@@ -1,0 +1,118 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251221205913
+Username: BOOK-K7419310PT\Sanga
+RunAs User: BOOK-K7419310PT\Sanga
+Configuration Name: 
+Machine: BOOK-K7419310PT (Microsoft Windows NT 10.0.26220.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Start-Transcript -Path 'c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\service_setup.log'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' stop kubelet; & 'C:\Program Files\Kubernetes\bin\nssm.exe' remove kubelet confirm; & 'C:\Program Files\Kubernetes\bin\nssm.exe' install kubelet 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe' '-ExecutionPolicy Bypass -File "C:\Program Files\Kubernetes\bin\start-kubelet.ps1"'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' set kubelet AppDirectory 'C:\Program Files\Kubernetes\bin'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' start kubelet; Stop-Transcript
+Process ID: 429848
+PSVersion: 5.1.26100.7344
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7344
+BuildVersion: 10.0.26100.7344
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\service_setup.log
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script 
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+and try again.
+At line:1 char:97
++ ... vice_setup.log'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' stop ku ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], 
+CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct
+and try again.
+At line:1 char:97
++ ... vice_setup.log'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' stop ku ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], CommandNotFoundExc
+   eption
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script 
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+and try again.
+At line:1 char:156
++ ... e' stop kubelet; & 'C:\Program Files\Kubernetes\bin\nssm.exe' remove  ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], 
+CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct
+and try again.
+At line:1 char:156
++ ... e' stop kubelet; & 'C:\Program Files\Kubernetes\bin\nssm.exe' remove  ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], CommandNotFoundExc
+   eption
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script 
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+and try again.
+At line:1 char:225
++ ... kubelet confirm; & 'C:\Program Files\Kubernetes\bin\nssm.exe' install ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], 
+CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct
+and try again.
+At line:1 char:225
++ ... kubelet confirm; & 'C:\Program Files\Kubernetes\bin\nssm.exe' install ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], CommandNotFoundExc
+   eption
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script 
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+and try again.
+At line:1 char:431
++ ... t-kubelet.ps1"'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' set kub ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], 
+CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct
+and try again.
+At line:1 char:431
++ ... t-kubelet.ps1"'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' set kub ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], CommandNotFoundExc
+   eption
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script 
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+and try again.
+At line:1 char:536
++ ... Kubernetes\bin'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' start k ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], 
+CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+& : The term 'C:\Program Files\Kubernetes\bin\nssm.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct
+and try again.
+At line:1 char:536
++ ... Kubernetes\bin'; & 'C:\Program Files\Kubernetes\bin\nssm.exe' start k ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\Kubernetes\bin\nssm.exe:String) [], CommandNotFoundExc
+   eption
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+**********************
+Windows PowerShell transcript end
+End time: 20251221205913
+**********************

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Config
+clusters:
+  - name: prasuti-fqdn
+    cluster:
+      server: >-
+        https://e6cb868d-ac12-47af-a171-67420418f77f-ap-south-noi-1.kaas.theacecloud.com:6443
+      certificate-authority-data: >-
+        LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJlakNDQVIrZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWtNU0l3SUFZRFZRUUREQmx5YTJVeUxYTmwKY25abGNpMWpZVUF4TnpZMU5qUTVNVEV5TUI0WERUSTFNVEl4TXpFNE1EVXhNbG9YRFRNMU1USXhNVEU0TURVeApNbG93SkRFaU1DQUdBMVVFQXd3WmNtdGxNaTF6WlhKMlpYSXRZMkZBTVRjMk5UWTBPVEV4TWpCWk1CTUdCeXFHClNNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJQQTFLWUgyeWtnQ1BKa0tqTHFZSDRsWGcyQjZUM3d1ZmVTVWhtbDUKMFRHdjV5d2NMNEIrTVRLdHI5ZTVYTHkzVzJzZDRVa0JETHdBL0FyR2FuMGw1VVNqUWpCQU1BNEdBMVVkRHdFQgovd1FFQXdJQ3BEQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01CMEdBMVVkRGdRV0JCUlQyT1lNV2lNZ1JidDd5WEZ1CnBETjJBZmpkMFRBS0JnZ3Foa2pPUFFRREFnTkpBREJHQWlFQStuanY1SDJ2TS85c2M5cWltLytGSGlIZW5MQmwKMjYwN0VXeHlJb3doUUJBQ0lRQ3dJZ0dQdVNjQmpwcXVpSDB6c1pWY0NLckc0SWYzWUdpWjFuK2FpZmZFbnc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
+users:
+  - name: prasuti
+    user:
+      token: >-
+        kubeconfig-user-7m8zvtc7ms:vfbrwtlcdnql2m9gjcw4rz7bvlvx24769vsjj8h26q7p9fxpm7d572
+contexts:
+  - name: prasuti-fqdn
+    context:
+      user: prasuti
+      cluster: prasuti-fqdn
+current-context: prasuti-fqdn

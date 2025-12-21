@@ -1,0 +1,73 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251221204341
+Username: BOOK-K7419310PT\Sanga
+RunAs User: BOOK-K7419310PT\Sanga
+Configuration Name: 
+Machine: BOOK-K7419310PT (Microsoft Windows NT 10.0.26220.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Start-Transcript -Path 'c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\fix_execution.log'; & 'c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\fix-prerequisites.ps1'; Stop-Transcript
+Process ID: 441668
+PSVersion: 5.1.26100.7344
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7344
+BuildVersion: 10.0.26100.7344
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\fix_execution.log
+=== Fixing Kubernetes Node Prerequisites ===
+Removing leftover certificate: C:\etc\kubernetes\pki\ca.crt
+Installing crictl...
+
+Downloading nssm...
+PS>TerminatingError(Invoke-WebRequest): "
+503 Service Temporarily Unavailable
+
+503 Service Temporarily Unavailable
+nginx/1.15.5
+
+
+"
+>> TerminatingError(Invoke-WebRequest): "
+503 Service Temporarily Unavailable
+
+503 Service Temporarily Unavailable
+nginx/1.15.5
+
+
+"
+>> TerminatingError(Invoke-WebRequest): "
+503 Service Temporarily Unavailable
+
+503 Service Temporarily Unavailable
+nginx/1.15.5
+
+
+"
+
+503 Service Temporarily Unavailable
+
+503 Service Temporarily Unavailable
+nginx/1.15.5
+Invoke-WebRequest :
+503 Service Temporarily Unavailable
+
+503 Service Temporarily Unavailable
+nginx/1.15.5
+
+
+
+At C:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\fix-prerequisites.ps1:22 char:5
++     Invoke-WebRequest -Uri $nssmUrl -OutFile $nssmZip -UseBasicParsin ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+PS>$global:?
+False
+**********************
+Windows PowerShell transcript end
+End time: 20251221204417
+**********************

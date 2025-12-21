@@ -1,0 +1,14 @@
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: JoinConfiguration
+discovery:
+  bootstrapToken:
+    apiServerEndpoint: "45.194.3.82:6443"
+    token: "e7pfyn.94efbajuyo7zopmv"
+    unsafeSkipCAVerification: true
+---
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+cgroupDriver: systemd
+cgroupsPerQOS: false
+enforceNodeAllocatable: []
+failSwapOn: false

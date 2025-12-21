@@ -1,0 +1,39 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251221203346
+Username: BOOK-K7419310PT\Sanga
+RunAs User: BOOK-K7419310PT\Sanga
+Configuration Name: 
+Machine: BOOK-K7419310PT (Microsoft Windows NT 10.0.26220.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Start-Transcript -Path 'c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\join_execution.log'; & 'c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\auto-join.ps1'; Stop-Transcript
+Process ID: 438400
+PSVersion: 5.1.26100.7344
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7344
+BuildVersion: 10.0.26100.7344
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is c:\DATA\Work\CICD\Prasuti-KubeNet\AddLaptopAsNode\join_execution.log
+=== Auto-Joining Kubernetes Cluster ===
+Executing: kubeadm join 45.194.3.82:6443 --token e9ckca.d62xhwifo1p72zo8 --discovery-token-ca-cert-hash sha256:e4ca8feb60449c29a8f6bdce3231b3e40c9c067ff2e63c1df2d152f3da41c19e --cri-socket "npipe:////./pipe/containerd-containerd"
+[preflight] Running pre-flight checks
+W1221 20:33:46.972526  429412 checks.go:1066] [preflight] WARNING: Couldn't create the interface used for talking to the
+ container runtime: crictl is required by the container runtime: executable file not found in %PATH%
+        [WARNING Service-Kubelet]: kubelet service does not exist
+error execution phase preflight: [preflight] Some fatal errors occurred:
+        [ERROR FileAvailable-C:-etc-kubernetes-pki-ca.crt]: C:/etc/kubernetes/pki/ca.crt already exists
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+
+=== Setting up Kubelet Service with NSSM ===
+WARNING: NSSM not found. Starting kubelet process directly...
+Kubelet started in background.
+
+=== Join Process Complete ===
+**********************
+Windows PowerShell transcript end
+End time: 20251221203350
+**********************
