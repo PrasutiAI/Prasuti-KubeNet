@@ -1,5 +1,6 @@
 param (
-    [string]$Environment = "dev"
+    [string]$Environment = "dev",
+    [string]$ServiceName = ""
 )
 # Cloudflare DNS Management Script
 $ErrorActionPreference = "Stop"
@@ -22,7 +23,15 @@ $ApiKey = $config['CLOUDFLARE_API_KEY']
 $ZoneName = $config['CLOUDFLARE_ZONE_NAME']
 $ServerIp = $config['K8S_CONTROL_PLANE']
 if (-not $ServerIp) { $ServerIp = $config['SERVER_HOST'] }
-$Services = $config['SERVICES']
+
+# Determine services to update
+if ($ServiceName) {
+    $Services = $ServiceName
+    Write-Host "Targeting single service: $ServiceName" -ForegroundColor Cyan
+}
+else {
+    $Services = $config['SERVICES']
+}
 
 if (-not $ApiKey -or -not $ZoneName -or -not $ServerIp -or -not $Services) {
     Write-Host "Error: Missing required configuration in application_secrets.$Environment.env" -ForegroundColor Red
@@ -121,8 +130,8 @@ Write-Host "Starting DNS updates for zone: $ZoneName (Environment: $Environment)
 $zoneId = Get-CloudflareZoneId -Name $ZoneName
 
 if ($zoneId) {
-    if ($config['SERVICES']) {
-        $serviceList = $config['SERVICES'].Split(',').Trim()
+    if ($Services) {
+        $serviceList = $Services.Split(',').Trim()
         foreach ($service in $serviceList) {
             if ($service) {
                 # Derive domain: service-env.zone.com or service.zone.com if production

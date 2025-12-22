@@ -206,6 +206,21 @@ try {
   if ($LASTEXITCODE -ne 0) { throw "Kubectl apply failed" }
 
   Write-Host "[OK] Applied successfully" -ForegroundColor Green
+  
+  # --- Step 4: DNS Configuration ---
+  Write-Host "--- Step 4: DNS Configuration ---" -ForegroundColor Green
+  $DnsScript = Join-Path $ScriptDir "cloudflare\update-dns.ps1"
+  if (Test-Path $DnsScript) {
+    Write-Host "Updating DNS for $ServiceName..." -ForegroundColor White
+    try {
+      & $DnsScript -Environment $Environment -ServiceName $ServiceName
+      Write-Host "[OK] DNS updated successfully" -ForegroundColor Green
+    }
+    catch {
+      Write-Warning "DNS update failed: $_"
+    }
+  }
+
 }
 catch {
   Write-Error "Failed to deploy: $_"

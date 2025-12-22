@@ -255,6 +255,25 @@ fi
 echo "✓ Kubernetes manifests applied successfully"
 echo ""
 
+# --- Step 4: DNS Configuration ---
+echo "--- Step 4: DNS Configuration ---"
+DNS_SCRIPT="$SCRIPT_DIR/cloudflare/update-dns.ps1"
+if [ -f "$DNS_SCRIPT" ]; then
+  if command -v pwsh >/dev/null 2>&1; then
+    echo "Updating DNS for $SERVICE_NAME..."
+    if pwsh "$DNS_SCRIPT" -Environment "$ENVIRONMENT" -ServiceName "$SERVICE_NAME"; then
+      echo "✓ DNS updated successfully"
+    else
+      echo "Warning: DNS update failed. Please check logs."
+    fi
+  else
+    echo "Warning: pwsh not found. Skipping DNS update."
+  fi
+else
+  echo "Warning: DNS script not found at $DNS_SCRIPT"
+fi
+echo ""
+
 # Success!
 echo "========================================="
 echo "✓ Deployment Complete!"
