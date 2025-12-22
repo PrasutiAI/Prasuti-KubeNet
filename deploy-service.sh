@@ -68,7 +68,7 @@ echo ""
 # Configuration
 KUBE_NAMESPACE="$ENVIRONMENT"
 SERVICE_NAME_LOWER=$(echo "$SERVICE_NAME" | tr '[:upper:]' '[:lower:]')
-IMAGE_NAME="ghcr.io/prasutiai/prasuti-$SERVICE_NAME_LOWER:latest"
+IMAGE_NAME="ghcr.io/prasutiai/prasuti-$SERVICE_NAME_LOWER-ci:latest"
 
 # Map service name to project directory name (PascalCase)
 case $SERVICE_NAME in
