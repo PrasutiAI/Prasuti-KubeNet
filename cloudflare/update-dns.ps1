@@ -8,21 +8,20 @@ $ErrorActionPreference = "Stop"
 # Load configuration from environment-specific file
 $envFile = Join-Path $PSScriptRoot "..\application_secrets.$Environment.env"
 if (-not (Test-Path $envFile)) {
-    Write-Host "Error: Configuration file $envFile not found!" -ForegroundColor Red
-    exit 1
+    Write-Warning "Configuration file $envFile not found. Attempting to use Environment Variables..."
 }
-
-$config = @{}
-Get-Content $envFile | ForEach-Object {
-    if ($_ -match '^\s*([^#][^=]+)="?([^"]*)"?\s*$') {
-        $config[$matches[1].Trim()] = $matches[2].Trim()
+else {
+    Get-Content $envFile | ForEach-Object {
+        if ($_ -match '^\s*([^#][^=]+)="?([^"]*)"?\s*$') {
+            $config[$matches[1].Trim()] = $matches[2].Trim()
+        }
     }
 }
 
-$ApiKey = $config['CLOUDFLARE_API_KEY']
-$ZoneName = $config['CLOUDFLARE_ZONE_NAME']
-$ServerIp = $config['K8S_CONTROL_PLANE']
-if (-not $ServerIp) { $ServerIp = $config['SERVER_HOST'] }
+# Determine Configuration Values (File > Env)
+$ApiKey = if ($config['CLOUDFLARE_API_KEY']) { $config['CLOUDFLARE_API_KEY'] } else { $env:CLOUDFLARE_API_KEY }
+$ZoneName = if ($config['CLOUDFLARE_ZONE_NAME']) { $config['CLOUDFLARE_ZONE_NAME'] } else { $env:CLOUDFLARE_ZONE_NAME }
+$ServerIp = if ($config['K8S_CONTROL_PLANE']) { $config['K8S_CONTROL_PLANE'] } elseif ($config['SERVER_HOST']) { $config['SERVER_HOST'] } else { $env:K8S_CONTROL_PLANE }
 
 # Determine services to update
 if ($ServiceName) {
@@ -30,7 +29,7 @@ if ($ServiceName) {
     Write-Host "Targeting single service: $ServiceName" -ForegroundColor Cyan
 }
 else {
-    $Services = $config['SERVICES']
+    $Services = if ($config['SERVICES']) { $config['SERVICES'] } else { $env:SERVICES }
 }
 
 if (-not $ApiKey -or -not $ZoneName -or -not $ServerIp -or -not $Services) {
